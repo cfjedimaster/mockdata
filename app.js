@@ -12,7 +12,7 @@ if(isNaN(port)) port=3000;
 require('http').createServer(function(req, res) {
 
 	var dataReq = qs.parse(url.parse(req.url).query);
-	console.log("dataReq",dataReq);
+	//console.log("dataReq",dataReq);
 
 	//Did they specify how many they want?
 	if(!dataReq.num) dataReq.num = 10;
@@ -46,7 +46,7 @@ require('http').createServer(function(req, res) {
 		{name:"20to30",type:"num:20:30"}
 	];
 	*/
-	
+
 	var fieldModel = [];
 	for(key in dataReq) {
 		if(key != "num") {
