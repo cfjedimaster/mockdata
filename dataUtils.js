@@ -3,6 +3,7 @@
 var fNames = ["Andy","Alice","Amy","Barry","Bob","Charlie","Clarence","Clara","Danny","Delores","Erin","Frank","Gary","Gene","George","Heather","Jacob","Leah","Lisa","Lynn","Nick","Noah","Ray","Roger","Scott","Todd"];
 var lNames = ["Anderson","Bearenstein","Boudreaux","Camden","Clapton","Degeneres","Hill","Moneymaker","Padgett","Rogers","Smith","Sharp","Stroz","Zelda"];
 var emailDomains = ["gmail.com","aol.com","microsoft.com","apple.com","adobe.com"];
+var lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 var defaults = ["name","fname","lname","age","all_age","email","ssn","tel","gps","num"];
 function isDefault(s) {
@@ -44,7 +45,7 @@ function generateFakeData(type) {
 	if(type.indexOf("num") === 0) {
 		//Support num, num:10, num:1:10
 		if(type === "num") return exports.randRange(1,10);
-		if(type.indexOf(":") >= 0) {
+		if(type.indexOf(":") > 0) {
 			var parts = type.split(":");
 			if(parts.length === 2) return exports.randRange(1,parts[1]);
 			else return exports.randRange(parts[1],parts[2]);
@@ -54,6 +55,18 @@ function generateFakeData(type) {
 		//Support oneof:male:female, ie, pick a random one
 		var items = type.split(":").slice(1);
 		return items[exports.randRange(0,items.length-1)];
+	}
+	if(type.indexOf("lorem") === 0) {
+		if(type === "lorem") return lorem;
+		if(type.indexOf(":") > 0) {
+			var parts = type.split(":");
+			var result = "";
+			var count;
+			if(parts.length === 2) count = parts[1];
+			else count = exports.randRange(parts[1],parts[2]);
+			for(var i=0; i<count; i++) result += lorem + '\n\n';
+			return result;
+		}
 	}
 	return "";
 }

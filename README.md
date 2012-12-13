@@ -104,3 +104,4 @@ num: By default, a number from 1 to 10. You can also use the form num:X for a ra
 
 oneof: Requires you to pass N values after it delimited by a colon. Example: "oneof:male:female". Will return a random value from that list.
 
+lorem: Returns lorem ipsum text. If used as lorem:N, returns N paragraphs. If used as lorem:X:Y, returns a random number of paragraphs between X and Y.
