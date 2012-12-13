@@ -83,14 +83,24 @@ gender: "male"
 Types
 =====
 string: Just returns string (not sure about this one)
+
 name: Generates a random name.
+
 fname: Generates a random first name.
+
 lname: Generates a random last name.
+
 age: Generates a random "adult" age of 18 to 75.
+
 all_age: Generates a random age of 1 to 100.
+
 email: Generates a random email.
+
 ssn: Generates a random Social Security number.
+
 tel: Generates a random (American) telephone number.
+
 num: By default, a number from 1 to 10. You can also use the form num:X for a random number between 1 and X. Or num:X:Y for a random number between X and Y.
+
 oneof: Requires you to pass N values after it delimited by a colon. Example: "oneof:male:female". Will return a random value from that list.
 
