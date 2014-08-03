@@ -79,7 +79,7 @@ exports.generateNewItem = function(model) {
 		var field = model[i];
 
 		if(!field.hasOwnProperty("name")) {
-			field.name = "field"+1;
+			field.name = "field"+i;
 		}
 
 		if(!field.hasOwnProperty("type")) {
